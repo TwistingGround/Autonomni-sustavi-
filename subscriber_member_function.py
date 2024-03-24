@@ -23,14 +23,12 @@ class ListenerAndPublisher(Node):
         )
 
     def listener_callback(self, msg):
-        self.get_logger().info('I heard: "%d"' % msg.data)
 
         squared_number = msg.data ** 2
 
         squared_msg = Int32()
         squared_msg.data = squared_number
         self.publisher.publish(squared_msg)
-        self.get_logger().info('Publishing: %d' %squared_number)
 
 
 def main(args=None):

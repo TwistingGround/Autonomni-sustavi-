@@ -11,13 +11,12 @@ class MinimalPublisher(Node):
         timer_period = 1  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.i = 0
-
     def timer_callback(self):
-        msg = Int32()
+        msg = Int32()  # Change message type to Int32
         msg.data = self.i
         self.publisher_.publish(msg)
-        self.get_logger().info('Publishing: "%d"' % msg.data)
         self.i += 1
+
 
 
 def main(args=None):
